@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090a0d">
+  <title>Ball-E // Personal System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Chakra+Petch:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body><div class="page-loader"><div class="loader-mark">BE</div><span></span></div><div class="boot-screen" id="boot-screen" aria-hidden="true"><div>CONNECTING PROFILE<span>...</span></div><i></i></div><div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  <canvas id="particles" aria-hidden="true"></canvas>
+  <div class="scanline" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#inicio"><span>BE</span> Ball-E</a>
+    <div class="system-status"><i></i> SYSTEM ONLINE</div>
+    <input id="audio-file" type="file" accept="audio/*" hidden>
+    <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false" aria-label="Cargar o reproducir Drain You" title="Cargar Drain You (archivo local)">♪</button>
+    <audio id="drain-you" loop preload="metadata"></audio>
+  </header>
+
+  <nav class="dock" aria-label="Secciones">
+    <a class="active" href="#inicio" data-section="inicio"><b>01</b><span>Inicio</span></a>
+    <a href="#perfil" data-section="perfil"><b>02</b><span>Perfil</span></a>
+    <a href="#universo" data-section="universo"><b>03</b><span>Universo</span></a>
+    <a href="#favoritos" data-section="favoritos"><b>04</b><span>Favoritos</span></a>
+    <a href="#proyectos" data-section="proyectos"><b>05</b><span>Proyectos</span></a>
+    <a href="#datos" data-section="datos"><b>06</b><span>Datos</span></a>
+    <a href="#anecdotas" data-section="anecdotas"><b>07</b><span>Historias</span></a>
+    <a href="#logros" data-section="logros"><b>08</b><span>Logros</span></a>
+    <a href="#brujula" data-section="brujula"><b>09</b><span>Brújula</span></a>
+  </nav>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <p class="kicker"><span>PERSONAL PROFILE</span> — 001</p>
+        <h1>Construyo cosas.<br><em>También sueños.</em></h1>
+        <p class="intro">Gamer, músico y futuro creador de mundos digitales. Aquí no hay stats vacíos: solo una persona aprendiendo a subir de nivel todos los días.</p>
+        <a href="#perfil" class="action">Explorar perfil <span>↘</span></a>
+      </div>
+
+      <div class="identity tilt" data-tilt>
+        <div class="identity-ring ring-a"></div>
+        <div class="identity-ring ring-b"></div>
+        <label class="portrait" for="avatar-file" title="Cambiar avatar"><span id="avatar-letter">B</span><img id="avatar-image" alt="Avatar personal" hidden><b>CAMBIAR</b></label>
+        <input id="avatar-file" type="file" accept="image/*" hidden>
+        <div class="identity-code">BALL-E <small>// PLAYER_01</small></div>
+        <div class="online"><i></i> ONLINE</div>
+      </div>
+    </section>
+
+    <section class="panel" id="perfil">
+      <header class="panel-title">
+        <div><span>ARCHIVO 001</span><h2>Identidad</h2></div>
+        <p>Datos personales</p>
+      </header>
+      <div class="profile-grid">
+        <article class="quote-card tilt" data-tilt>
+          <span class="corner">01</span>
+          <blockquote>“Mi energía cambia. Mi curiosidad no.”</blockquote>
+          <p>Soy alegre, divertido, cariñoso y bastante curioso. Tengo momentos reflexivos, pero intento mantener siempre una buena actitud y seguir avanzando.</p>
+        </article>
+        <div class="stat-grid">
+          <article class="stat tilt" data-tilt><span>CUR</span><strong data-count="97">0</strong><small>CURIOSIDAD</small></article>
+          <article class="stat tilt" data-tilt><span>ENE</span><strong data-count="89">0</strong><small>ENERGÍA</small></article>
+          <article class="stat tilt" data-tilt><span>LEA</span><strong data-count="100">0</strong><small>LEALTAD</small></article>
+          <article class="stat tilt" data-tilt><span>LVL</span><strong data-count="13">0</strong><small>NIVEL ACTUAL</small></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="universo">
+      <header class="panel-title">
+        <div><span>ARCHIVO 002</span><h2>Mi universo</h2></div>
+        <div class="carousel-controls">
+          <button id="prev-interest" type="button" aria-label="Anterior">←</button>
+          <span><b id="slide-number">01</b> / 05</span>
+          <button id="next-interest" type="button" aria-label="Siguiente">→</button>
+        </div>
+      </header>
+
+      <div class="interest-stage">
+        <div class="interest-track" id="interest-track">
+          <article class="interest"><span class="interest-index">01</span><button class="interest-art art-music" id="music-artists-toggle" type="button" aria-label="Mostrar artistas favoritos" aria-expanded="false" aria-controls="music-artists"><span class="music-note">♫</span><span class="music-art-hint">VER ARTISTAS</span></button><div><p>Audio</p><h3>Música</h3><small>Rock · Pop</small></div></article>
+          <article class="interest"><span class="interest-index">02</span><button class="interest-art art-screen" id="screen-favorites-toggle" type="button" aria-label="Mostrar películas y anime favoritos" aria-expanded="false" aria-controls="screen-favorites"><span>▶</span><span class="music-art-hint">VER FAVORITOS</span></button><div><p>Pantalla</p><h3>Cine & anime</h3><small>Acción · Drama · Romance</small></div></article>
+          <article class="interest"><span class="interest-index">03</span><button class="interest-art art-game" id="game-favorites-toggle" type="button" aria-label="Mostrar videojuegos favoritos" aria-expanded="false" aria-controls="game-favorites"><span>⌘</span><span class="music-art-hint">VER JUEGOS</span></button><div><p>Lobby</p><h3>Videojuegos</h3><small>Minecraft · Roblox · Gacha</small></div></article>
+          <article class="interest"><span class="interest-index">04</span><button class="interest-art art-sport" id="sport-favorites-toggle" type="button" aria-label="Mostrar deportes favoritos" aria-expanded="false" aria-controls="sport-favorites"><span>↗</span><span class="music-art-hint">VER DEPORTES</span></button><div><p>Cancha</p><h3>Deportes</h3><small>Fútbol · Tenis</small></div></article>
+          <article class="interest"><span class="interest-index">05</span><button class="interest-art art-food" id="food-favorites-toggle" type="button" aria-label="Mostrar comidas favoritas" aria-expanded="false" aria-controls="food-favorites"><span>◆</span><span class="music-art-hint">VER COMIDAS</span></button><div><p>Combustible</p><h3>Comida</h3><small>Carnes · Pastas</small></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="favoritos">
+      <header class="panel-title"><div><span>ARCHIVO EXTRA 01</span><h2>Mis favoritos</h2></div><p>Hover para descubrir</p></header>
+      <div class="favorites-grid">
+        <article class="favorite-card tilt" data-tilt><span>GAME</span><h3>Minecraft</h3><p>Construir mundos sin límites.</p><small>CREATIVIDAD +10</small></article>
+        <article class="favorite-card tilt" data-tilt><span>GAME</span><h3>Brawl Stars</h3><p>Partidas rápidas, combos y adrenalina.</p><small>RANKED / ONLINE</small></article>
+        <article class="favorite-card tilt" data-tilt><span>SCREEN</span><h3>Romance & anime</h3><p>Historias emotivas que quedan grabadas.</p><small>MOOD / LENTO</small></article>
+        <article class="favorite-card tilt" data-tilt><span>AUDIO</span><h3>Rock + Pop</h3><p>Canciones para cada versión de mí.</p><small>NOW PLAYING</small></article>
+      </div>
+    </section>
+
+    <section class="panel" id="proyectos">
+      <header class="panel-title"><div><span>WORKSPACE 001</span><h2>Mis proyectos</h2></div><p>Ideas en desarrollo</p></header>
+      <div class="projects-grid">
+        <article class="project-card tilt" data-tilt><div class="project-preview preview-one"><span>01</span></div><div><p>WEB / PERSONAL</p><h3>Ball-E Profile</h3><span>HTML · CSS · JavaScript</span></div></article>
+        <article class="project-card tilt" data-tilt><div class="project-preview preview-two"><span>02</span></div><div><p>INCOMING PROJECT</p><h3>Próxima idea</h3><span>Concepto en desarrollo</span></div></article>
+        <article class="project-card tilt" data-tilt><div class="project-preview preview-three"><span>03</span></div><div><p>INCOMING PROJECT</p><h3>Tu próxima creación</h3><span>Stack por definir</span></div></article>
+      </div>
+    </section>
+
+    <section class="panel" id="datos">
+      <header class="panel-title"><div><span>PERFIL / INFO</span><h2>Datos sobre mí</h2></div><p>Player profile</p></header>
+      <div class="personal-data">
+        <article class="data-card tilt" data-tilt><span>BD</span><strong>27</strong><small>ABRIL · CUMPLEAÑOS</small></article>
+        <article class="data-card tilt" data-tilt><span>YR</span><strong>2013</strong><small>AÑO DE INICIO</small></article>
+        <article class="data-card tilt" data-tilt><span>FM</span><strong>1 hermano</strong><small>FAMILIA · PLAYER 2</small></article>
+        <article class="data-card tilt" data-tilt><span>HT</span><strong>1,75 m</strong><small>ALTURA ACTUAL</small></article>
+      </div>
+      <article class="future-goal tilt" data-tilt>
+        <span>FUTURE OBJECTIVE</span>
+        <div><h3>Más fuerte, más sano, más yo.</h3><p>Una meta importante para mí: bajar de peso de forma saludable y construir una buena condición física. Progreso real, sin prisa y sin perfección.</p></div>
+        <b>LOADOUT<br>FITNESS</b>
+      </article>
+    </section>
+
+    <section class="panel" id="anecdotas">
+      <header class="panel-title"><div><span>MEMORY LOGS</span><h2>Anécdotas</h2></div><p>Momentos que quedaron guardados</p></header>
+      <div class="story-grid">
+        <article class="memory-story tilt" data-tilt>
+          <div class="story-date"><span>EP. 01</span><b>11 años</b></div>
+          <h3>El árbol del bosque</h3>
+          <p>Un amigo y yo nos fuimos al bosque solos. Intentamos trepar un árbol para ver todo desde arriba, pero terminamos cayendo bastante feo. Cuando nuestras mamás se enteraron… recibimos un buen regaño.</p>
+          <footer class="story-footer"><span>ERROR DE MISIÓN</span><span>RICOS MOMENTOS —1</span></footer>
+        </article>
+        <article class="memory-story tilt" data-tilt>
+          <div class="story-date"><span>EP. 02</span><b>Jockey Plaza</b></div>
+          <h3>La comida arruinada</h3>
+          <p>Una amiga y yo fuimos al Jockey Plaza a pasear y comer tranquilos. Pero, de repente, unos señores comenzaron a pelear y arruinaron el momento — además, nos quedó arruinada la comida. Fue horrible, pero todavía da para contarla riendo.</p>
+          <footer class="story-footer"><span>EVENTO INESPERADO</span><span>COMIDA —100%</span></footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" id="brujula">
+      <header class="panel-title"><div><span>PERSONAL / SIDE QUESTS</span><h2>Lo que me mueve</h2></div><p>Mi brújula personal</p></header>
+      <div class="drive-grid">
+        <article class="drive-card" data-tilt><span class="drive-number">01</span><span class="drive-icon" aria-hidden="true">&lt;/&gt;</span><p>CREAR</p><h3>Ideas que cobran vida</h3><div>Aprender programación para construir experiencias y tecnología propia.</div><small>DEV MODE / ON</small></article>
+        <article class="drive-card" data-tilt><span class="drive-number">02</span><span class="drive-icon" aria-hidden="true">♫</span><p>EXPRESARME</p><h3>Encontrar mi sonido</h3><div>Canto y guitarra: música para decir lo que no siempre sale en palabras.</div><small>AUDIO / PERSONAL</small></article>
+        <article class="drive-card" data-tilt><span class="drive-number">03</span><span class="drive-icon" aria-hidden="true">↗</span><p>SEGUIR</p><h3>Volver al juego</h3><div>Fútbol, tenis y cuidar mi salud. Avanzar a mi ritmo también cuenta.</div><small>PROGRESO / REAL</small></article>
+      </div>
+    </section>
+
+    <section class="panel" id="logros">
+      <header class="panel-title">
+        <div><span>ARCHIVO 003</span><h2>Skills & logros</h2></div>
+        <p>Memoria de progreso</p>
+      </header>
+      <div class="skills-grid">
+        <article class="skill-row tilt" data-tilt><b>01</b><div><h3>Programación</h3><p>Construir ideas y convertirlas en experiencias reales.</p></div><span>EXP +</span></article>
+        <article class="skill-row tilt" data-tilt><b>02</b><div><h3>Canto & guitarra</h3><p>Música para expresar lo que las palabras no alcanzan.</p></div><span>EXP +</span></article>
+        <article class="skill-row tilt" data-tilt><b>03</b><div><h3>Tenis</h3><p>Constancia, precisión y capacidad de volver al juego.</p></div><span>EXP +</span></article>
+      </div>
+
+      <div class="memory-grid">
+        <article class="memory-card tilt" data-tilt><span>LOG 01</span><h3>Viaje de promoción</h3><p>6.º grado · Recuerdo marcado en memoria</p></article>
+        <article class="memory-card tilt" data-tilt><span>LOG 02</span><h3>Cumpleaños 13</h3><p>Una celebración que ayudó a definir la aventura.</p></article>
+      </div>
+
+      <div class="dream-card">
+        <p>OBJECTIVE</p>
+        <h2>Ser exitoso creando tecnología que me haga sentir vivo.</h2>
+        <button id="secret-trigger" type="button" aria-expanded="false">Desbloquear archivo secreto <span>+</span></button>
+        <div id="secret-content" hidden>
+          Soy leal cuando gano confianza y me vuelvo muy cariñoso. Tengo gustos culposos y sigo aprendiendo a conocerme, superar los momentos difíciles y convertirlos en experiencia.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="music-artists" id="music-artists" role="dialog" aria-modal="true" aria-labelledby="artists-title" hidden>
+    <div class="artists-overlay-backdrop"></div>
+    <div class="artists-overlay-content">
+      <header class="artists-overlay-header">
+        <div><span>ARCHIVO DE AUDIO / TOP 05</span><h2 id="artists-title">Mis artistas favoritos</h2></div>
+        <button class="artists-close" id="close-music-artists" type="button" aria-label="Cerrar artistas">×</button>
+      </header>
+      <div class="artist-polaroids">
+        <article class="artist-polaroid"><div class="artist-photo"><img src="artista1.webp" alt="Milo J"></div><p>Milo J</p></article>
+        <article class="artist-polaroid"><div class="artist-photo"><img src="artista2.webp" alt="Nirvana"></div><p>Nirvana</p></article>
+        <article class="artist-polaroid"><div class="artist-photo"><img src="artista3.jpg" alt="VIDEOCLUB"></div><p>VIDEOCLUB</p></article>
+        <article class="artist-polaroid"><div class="artist-photo"><img src="artista4.jpg" alt="Green Day"></div><p>Green Day</p></article>
+        <article class="artist-polaroid"><div class="artist-photo"><img src="artista5.jpg" alt="Maluma"></div><p>Maluma</p></article>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen-favorites" id="screen-favorites" role="dialog" aria-modal="true" aria-labelledby="screen-favorites-title" hidden>
+    <div class="artists-overlay-backdrop"></div>
+    <div class="artists-overlay-content">
+      <header class="artists-overlay-header">
+        <div><span>ARCHIVO DE PANTALLA / TOP 05</span><h2 id="screen-favorites-title">Mis pelis y anime favoritos</h2></div>
+        <button class="artists-close" id="close-screen-favorites" type="button" aria-label="Cerrar favoritos de cine y anime">×</button>
+      </header>
+      <div class="artist-polaroids screen-polaroids">
+        <article class="artist-polaroid"><div class="artist-photo screen-poster poster-one"><img src="Pelicula1.jpg" alt="Póster de Avengers: Endgame"></div><p>Avengers: Endgame</p></article>
+        <article class="artist-polaroid"><div class="artist-photo screen-poster poster-two"><img src="Pelicula2.jpg" alt="Póster de Spider-Man: No Way Home"></div><p>Spider-Man: No Way Home</p></article>
+        <article class="artist-polaroid"><div class="artist-photo screen-poster poster-three"><img src="Pelicula3.jpg" alt="Póster de Jujutsu Kaisen"></div><p>Jujutsu Kaisen</p></article>
+        <article class="artist-polaroid"><div class="artist-photo screen-poster poster-four"><img src="Pelicula4.webp" alt="Póster de Las quintillizas"></div><p>Las quintillizas</p></article>
+        <article class="artist-polaroid"><div class="artist-photo screen-poster poster-five"><img src="Pelicula5.jpg" alt="Póster de Clannad"></div><p>Clannad</p></article>
+      </div>
+    </div>
+  </div>
+
+  <div class="game-favorites screen-favorites" id="game-favorites" role="dialog" aria-modal="true" aria-labelledby="game-favorites-title" hidden>
+    <div class="artists-overlay-backdrop"></div>
+    <div class="artists-overlay-content">
+      <header class="artists-overlay-header">
+        <div><span>ARCHIVO DE JUEGOS / TOP 05</span><h2 id="game-favorites-title">Mis videojuegos favoritos</h2></div>
+        <button class="artists-close" id="close-game-favorites" type="button" aria-label="Cerrar videojuegos favoritos">×</button>
+      </header>
+      <div class="artist-polaroids game-polaroids">
+        <article class="artist-polaroid"><div class="artist-photo game-cover game-minecraft"><img src="Videojuego1.avif" alt="Minecraft"></div><p>Minecraft</p></article>
+        <article class="artist-polaroid"><div class="artist-photo game-cover game-roblox"><img src="Videojuego4.jpg" alt="Roblox"></div><p>Roblox</p></article>
+        <article class="artist-polaroid"><div class="artist-photo game-cover game-gacha"><img src="Videojuego3.avif" alt="Gacha"></div><p>Gacha</p></article>
+        <article class="artist-polaroid"><div class="artist-photo game-cover game-brawl"><img src="Videojuego5.jpg" alt="Brawl Stars"></div><p>Brawl Stars</p></article>
+        <article class="artist-polaroid"><div class="artist-photo game-cover game-next"><img src="Videojuego2.jpg" alt="Five Nights at Freddy's"></div><p>Five Nights at Freddy's</p></article>
+      </div>
+    </div>
+  </div>
+
+  <div class="sport-favorites screen-favorites" id="sport-favorites" role="dialog" aria-modal="true" aria-labelledby="sport-favorites-title" hidden>
+    <div class="artists-overlay-backdrop"></div>
+    <div class="artists-overlay-content">
+      <header class="artists-overlay-header">
+        <div><span>ARCHIVO DE DEPORTES / TOP 02</span><h2 id="sport-favorites-title">Mis deportes favoritos</h2></div>
+        <button class="artists-close" id="close-sport-favorites" type="button" aria-label="Cerrar deportes favoritos">×</button>
+      </header>
+      <div class="artist-polaroids two-polaroids">
+        <article class="artist-polaroid"><div class="artist-photo"><img src="Deporte1.jpg" alt="Fútbol"></div><p>Fútbol</p></article>
+        <article class="artist-polaroid"><div class="artist-photo"><img src="Deporte2.jpg" alt="Tenis"></div><p>Tenis</p></article>
+      </div>
+    </div>
+  </div>
+
+  <div class="food-favorites screen-favorites" id="food-favorites" role="dialog" aria-modal="true" aria-labelledby="food-favorites-title" hidden>
+    <div class="artists-overlay-backdrop"></div>
+    <div class="artists-overlay-content">
+      <header class="artists-overlay-header">
+        <div><span>ARCHIVO DE COMIDA / TOP 02</span><h2 id="food-favorites-title">Mis comidas favoritas</h2></div>
+        <button class="artists-close" id="close-food-favorites" type="button" aria-label="Cerrar comidas favoritas">×</button>
+      </header>
+      <div class="artist-polaroids two-polaroids">
+        <article class="artist-polaroid"><div class="artist-photo"><img src="Comida1.jpg" alt="Carne con pasta"></div><p>Carne y pasta</p></article>
+        <article class="artist-polaroid"><div class="artist-photo"><img src="Comida2.jpg" alt="Carnes a la parrilla"></div><p>Carnes a la parrilla</p></article>
+      </div>
+    </div>
+  </div>
+
+  <aside class="mini-player" aria-label="Reproductor Drain You">
+    <div class="cover-art" id="cover-art"><input id="cover-file" type="file" accept="image/*" hidden><button id="cover-button" type="button" aria-label="Cambiar portada">N</button></div>
+    <div class="track-info"><small>ON REPEAT</small><strong>Drain You</strong><span>Nirvana</span></div>
+    <button id="player-toggle" type="button" aria-label="Cargar o reproducir">▶</button>
+    <input id="volume" type="range" min="0" max="1" step="0.05" value="0.7" aria-label="Volumen">
+  </aside>
+
+  <footer><span>© BALL-E / PERSONAL SYSTEM</span><a href="#inicio">BACK TO TOP ↑</a></footer>
+  <script src="script.js"></script>
+</body>
+</html>
